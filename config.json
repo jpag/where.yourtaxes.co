@@ -1,0 +1,45 @@
+{
+	"menu": [{
+		"id": "home",
+		"pageId": "home",
+		"url": "",
+		"label": ""
+	}, {
+		"id": "about",
+		"pageId": "about",
+		"url": "",
+		"label": ""
+	}, {
+		"id": "projects",
+		"pageId": "projects",
+		"url": "",
+		"label": ""
+	}],
+	"scroll" : {
+		"amountOnExpand": 0.5
+	},
+	"index" : {
+		"gaTagID": "GTM-XXXXXX",
+		"title" : "ES6 Boilerplate"
+	},
+	"head" : {
+		"title": "HEAD title",
+		"meta" : {
+			"description": "Head Description",
+			"keywords": "Head Keywords",
+			"url": "http://www.stinkdigital.com/"
+		},
+		"image": {
+			"fb" : {
+				"src": "",
+				"width": "1200",
+				"height": "630"
+			},
+			"tw": {
+				"src": "",
+				"width": "1024",
+				"height": "512"
+			}
+		}
+	}
+}

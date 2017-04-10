@@ -1,0 +1,79 @@
+// https://dg9f2badvburd.cloudfront.net/static/sbux_1912_app/styles-min/fonts.min.28f2fcc8528d.css
+
+* {
+	text-rendering optimizeLegibility !important
+  -webkit-font-smoothing antialiased !important
+  font-smoothing antialiased !important
+  -moz-osx-font-smoothing grayscale !important
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque-Bold';
+  src: url("../fonts/brandongrotesque/brandongrotesque-bold.eot");
+  src: url("../fonts/brandongrotesque/brandongrotesque-bold.eot") format("eot"),
+  	url("../fonts/brandongrotesque/brandongrotesque-bold.woff2") format("woff2"),
+  	url("../fonts/brandongrotesque/brandongrotesque-bold.woff") format("woff"),
+  	url("../fonts/brandongrotesque/brandongrotesque-bold.ttf") format("truetype"),
+  	url("../fonts/brandongrotesque/brandongrotesque-bold.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'ACaslonPro-Italic';
+  src: url("../fonts/acaslonpro/acaslonpro-italic.eot");
+  src: url("../fonts/acaslonpro/acaslonpro-italic.eot") format("eot"),
+  url("../fonts/acaslonpro/acaslonpro-italic.woff2") format("woff2"), url("../fonts/acaslonpro/acaslonpro-italic.woff") format("woff"),
+  url("../fonts/acaslonpro/acaslonpro-italic.ttf") format("truetype"), url("../fonts/acaslonpro/acaslonpro-italic.svg") format("svg");
+}
+@font-face {
+  font-family: 'ACaslonPro-Regular';
+  src: url("../fonts/acaslonpro/acaslonpro-regular.woff2") format("woff2");
+}
+
+font-serif( $size=18px, $color=#333333 ) {
+	font-family: 'ACaslonPro-Regular', Helvetica, Arial, sans-serif;
+	font-size: $size;
+	color: $color;
+}
+
+font-serif-italic( $size=18px, $color=#333333 ) {
+	font-family: 'ACaslonPro-Italic', Helvetica, Arial, sans-serif;
+	font-size: $size;
+	color: $color;
+}
+
+font-sansserif( $size=18px, $color=#333333 ){
+	font-family: 'BrandonGrotesque-Bold', Helvetica, Arial, sans-serif;
+	font-size: $size;
+	color: $color;
+	text-transform: uppercase;
+}
+
+h1,h2,h3,h4,h5 {
+  line-height: 1;
+	font-weight: normal;
+}
+
+h1 {
+  font-sansserif(2.125em, #FFF);
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 10px;
+}
+
+p {
+  font-serif(1.0625em, #dadada);
+  line-height: 1em;
+}

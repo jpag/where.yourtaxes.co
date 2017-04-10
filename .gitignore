@@ -1,0 +1,20 @@
+*.sublime-workspace
+.DS_Store
+
+
+public/css/global.css
+public/css/global.css.map
+public/js/
+public/index.html
+
+# we use a git hook to show this on the server.
+# dist
+
+node_modules
+npm-debug.log
+
+
+scripts/**/*.json
+
+passwords.md
+dist
