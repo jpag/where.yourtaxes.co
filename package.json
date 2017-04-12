@@ -58,6 +58,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-runtime": "6.18.0",
     "cssmin": "0.4.3",
+		"concurrently": "^3.3.0",
     "eslint": "3.9.1",
     "gsap": "1.19.0",
     "html-loader": "^0.4.4",
@@ -90,6 +91,6 @@
     "deploy:js": "ENV_PROD=1 BABEL_ENV=production webpack",
     "watch:css": "watch 'npm run dev:stylus' ./src/css/",
     "watch:js": "ENV_PROD=0 BABEL_ENV=development webpack --progress --colors --watch --cache"
-    
+
   }
 }

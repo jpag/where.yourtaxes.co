@@ -51,8 +51,8 @@
 <link rel="stylesheet" type="text/css" href="css/global.css">
 
 </head>
-<body class="loading">
-
+<body>
+	<div class="everything-but-the-footer">
 		<header id="header">
 			<div class="wrap">
 			 <div class="logo">
@@ -83,21 +83,48 @@
 			</div>
 		</header>
 
-		<div id="content-wrapper">
+		<div class="content-wrapper">
 			<div id="root">
 
 			</div>
 		</div>
 
+		<div class="content-wrapper">
+			<div id="about">
+				<section>
+					<h3>About</h3>
+					<p></p>
+				</section>
+				<section>
+					<h3>Resources</h3>
+					<p></p>
+					<ul>
+						<%_.forEach(htmlWebpackPlugin.options.DATA.spending, function (u) {%>
+							<%_.forEach(u.links, function (l) {%>
+								<li><a href="<%= l.url %>" target="_blank"><%= l.title %></a></li>
+							<%})%>
+						<%})%>
+					</ul>
+				</section>
+			</div>
+		</div>
 
-		<% if ( htmlWebpackPlugin.options.PROD ) { %>
-			<!-- hashed version of js file. -->
-			<script src="<%= htmlWebpackPlugin.files.js %>"></script>
-		<% } else { %>
-			<!-- DEV mode run live reload -->
-			<script src="http://localhost:9091"></script>
-			<script src="js/app.js"></script>
-		<% } %>
+	</div>
+
+	<footer>
+		<p>
+			<%= htmlWebpackPlugin.options.CONFIG.footer.copy %>
+		</p>
+	</footer>
+
+	<% if ( htmlWebpackPlugin.options.PROD ) { %>
+		<!-- hashed version of js file. -->
+		<script src="<%= htmlWebpackPlugin.files.js %>"></script>
+	<% } else { %>
+		<!-- DEV mode run live reload -->
+		<script src="http://localhost:9091"></script>
+		<script src="js/app.js"></script>
+	<% } %>
 
 </body>
 </html>

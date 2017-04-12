@@ -1,4 +1,4 @@
-var path = require('path');
+// var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var includePath = 'src/js/';
@@ -15,7 +15,9 @@ var filename = 'app';
 
 // Produciton flag is passed in the npm script.
 var PROD = JSON.parse(process.env.ENV_PROD);
-var CONFIG = require('./config.json');
+
+var CONFIG = require('./src/js/constants/config.js');
+var DATA = require('./src/js/constants/data.js');
 
 // console.log(' CONFIG', CONFIG);
 
@@ -38,6 +40,7 @@ var plugins = [
         filename: '../index.html',
         template: 'src/js/templates/index.html',
         CONFIG: CONFIG,
+				DATA: DATA,
         PROD: PROD,
         minify: {
             removeComments: true,

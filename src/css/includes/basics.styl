@@ -9,7 +9,9 @@ body {
   margin: 0 auto;
   padding: 0 auto;
   font-family: Arial,Tahoma,sans-serif;
-  background: $bgColor;
+
+	background: $footerColor;
+
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
@@ -20,6 +22,10 @@ body {
   user-select: none;
 
   min-width: $site-sml-min-width;
+}
+
+.everything-but-the-footer {
+	background: $bgColor;
 }
 
 canvas {
@@ -93,17 +99,17 @@ header {
 
 }
 
-#content-wrapper {
-	padding-top: 100px;
+.content-wrapper {
+	padding: 100px 0px;
 	position: relative;
   width: 80%;
-	max-width: 900px;
+	max-width: $site-max-width;
 	margin: auto;
 }
 
 #root,
 section {
-	padding: 20px 0px;
+	// padding: 20px 0px;
   position: relative;
   width: 100%;
   text-align: center;
