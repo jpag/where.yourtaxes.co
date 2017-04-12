@@ -11,6 +11,14 @@ export default {
 				"https://www.irs.gov/pub/irs-soi/12rswinbulreturnfilings.pdf",
 			],
 		},
+		ttr: {
+			title: 'Projected Federal Revenue Total 2017',
+			value: 3370000000000,
+			links: [
+				"http://federal-budget.insidegov.com/l/121/2018-Estimate#Spending&s=47xnQz",
+				"https://www.irs.gov/pub/irs-soi/12rswinbulreturnfilings.pdf",
+			],
+		}
 	},
 	spending: [
 		{

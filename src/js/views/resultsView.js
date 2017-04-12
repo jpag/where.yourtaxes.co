@@ -3,11 +3,7 @@ import RESULTS_TEMPLATE from '../templates/results.html';
 
 import disData from '../constants/data';
 import addCommas from '../helpers/addCommas';
-const round = function(v) {
-	let val = Math.round( v * 100) / 100;
-	// TODO add an extra 0 after the decimal?
-	return val;
-}
+import roundToDollarValues from '../helpers/roundToDollarValues';
 
 class ResultsView {
 
@@ -18,9 +14,16 @@ class ResultsView {
 
 	render(_el) {
 		const incomeTaxesCollected = this._data.dis.datapoints.iitce.value;
+		const totalFederalRevenue = this._data.dis.datapoints.ttr.value;
 		const userPaid = this._data.calculateTaxes.taxespaid;
+		// we have to factor in that federal taxes are only a portion of the total federal revenue
+		const percentIncomeTaxIsOfTotalRevenue = incomeTaxesCollected / totalFederalRevenue;
+		// user's taxes are only a portion of the total federal taxes collected:
+		const percentOfUsersTaxToTotalIncomeTax = userPaid / incomeTaxesCollected;
+
 		for(let d = 0; d < this._data.dis.spending.length; d++) {
-			this._data.dis.spending[d].userpaid = addCommas( round( (userPaid / incomeTaxesCollected) * this._data.dis.spending[d].cpy ));
+			// user paid formula = ( userTaxes / Total Income Tax Collected ) / Total Federal Revenue * cost of item.
+			this._data.dis.spending[d].userpaid = addCommas( roundToDollarValues( (percentOfUsersTaxToTotalIncomeTax * percentIncomeTaxIsOfTotalRevenue) * this._data.dis.spending[d].cpy ));
 		}
 
 		this.el = this.createRootFromTemplate(RESULTS_TEMPLATE(this._data));

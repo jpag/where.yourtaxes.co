@@ -1,6 +1,5 @@
-const round = function(v) {
-	return Math.round( v * 100) / 100;
-}
+
+import roundToDollarValues from '../helpers/roundToDollarValues';
 
 const standardDeductions = {
 	"single" : 6300,
@@ -52,19 +51,19 @@ const brackets = {
 		{
 			range: [190150, 413350],
 			tax: function(v) {
-				return round((v * 0.33) - 16470.75);
+				return roundToDollarValues((v * 0.33) - 16470.75);
 			},
 		},
 		{
 			range: [413350, 415050],
 			tax: function(v) {
-				return round((v * 0.35) - 24737.75);
+				return roundToDollarValues((v * 0.35) - 24737.75);
 			},
 		},
 		{
 			range: [415050],
 			tax: function(v) {
-				return round((v * 0.396) - 43830.05);
+				return roundToDollarValues((v * 0.396) - 43830.05);
 			},
 		},
 	],
@@ -111,25 +110,25 @@ const brackets = {
 		{
 			range: [151900, 231450.00],
 			tax: function(v) {
-				return round((v * 0.28) - 13014.50);
+				return roundToDollarValues((v * 0.28) - 13014.50);
 			},
 		},
 		{
 			range: [231450, 413350],
 			tax: function(v) {
-				return round((v * 0.33) - 24587.00);
+				return roundToDollarValues((v * 0.33) - 24587.00);
 			},
 		},
 		{
 			range: [413350, 466950.00],
 			tax: function(v) {
-				return round((v * 0.35) - 32854.00);
+				return roundToDollarValues((v * 0.35) - 32854.00);
 			},
 		},
 		{
 			range: [466950],
 			tax: function(v) {
-				return round((v * 0.396) - 54,333.70);
+				return roundToDollarValues((v * 0.396) - 54,333.70);
 			},
 		},
 	],
@@ -176,19 +175,19 @@ const brackets = {
 		{
 			range: [115725, 206675],
 			tax: function(v) {
-				return round((v * 0.33) - 12293.50);
+				return roundToDollarValues((v * 0.33) - 12293.50);
 			},
 		},
 		{
 			range: [206675, 233475],
 			tax: function(v) {
-				return round((v * 0.35) - 16427.00);
+				return roundToDollarValues((v * 0.35) - 16427.00);
 			},
 		},
 		{
 			range: [233475],
 			tax: function(v) {
-				return round((v * 0.396) - 27166.85);
+				return roundToDollarValues((v * 0.396) - 27166.85);
 			},
 		},
 	],
@@ -229,31 +228,31 @@ const brackets = {
 		{
 			range: [100000, 130150],
 			tax: function(v) {
-				return (v * 0.25) - 5702.50;
+				return roundToDollarValues((v * 0.25) - 5702.50);
 			},
 		},
 		{
 			range: [130150, 210800],
 			tax: function(v) {
-				return round((v * 0.28) - 9607.00);
+				return roundToDollarValues((v * 0.28) - 9607.00);
 			},
 		},
 		{
 			range: [210800, 413350],
 			tax: function(v) {
-				return round((v * 0.33) - 20147.00);
+				return roundToDollarValues((v * 0.33) - 20147.00);
 			},
 		},
 		{
 			range: [413350, 441000],
 			tax: function(v) {
-				return round((v * 0.35) - 28414.00);
+				return roundToDollarValues((v * 0.35) - 28414.00);
 			},
 		},
 		{
 			range: [441000],
 			tax: function(v) {
-				return round((v * 0.396) - 48700.00);
+				return roundToDollarValues((v * 0.396) - 48700.00);
 			},
 		},
 	]
@@ -270,7 +269,7 @@ const calcTaxes = function (amount, s){
 	for( var v = 0; v < brackets[status].length; v++) {
 		// check to see if there is an end range to this bracket.
 		if (brackets[status][v].range.length > 1) {
-			if (brackets[status][v].range[0] < amount &&
+			if (brackets[status][v].range[0] <= amount &&
 					amount < brackets[status][v].range[1] ) {
 
 				// console.log('a', amount, 'tx',t, status, v);
@@ -284,9 +283,9 @@ const calcTaxes = function (amount, s){
 		}
 	};
 
-	estTaxes = round(estTaxes);
+	estTaxes = roundToDollarValues(estTaxes);
 	if (estTaxes < 0 ){
-		estTaxes = 0;
+		estTaxes = 0.00;
 	}
 
 	return estTaxes;
