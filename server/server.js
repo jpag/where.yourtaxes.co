@@ -10,9 +10,10 @@ console.log(" - loop to find argument for env. -");
 process.argv.forEach(function (val, index, array) {
 	var split = val.split('=');
 	if( split[0] == 'env' && split.length > 1 ){
- 		env = split[1];
- 	}
+		env = split[1];
+	}
 });
+
 // we have an environment so define the config object accordingly.
 config = require('./server.config')[env];
 console.log( ' ' + config.app.name );
@@ -32,7 +33,7 @@ var app = express()
 	// app.use(serveStatic(config.staticPath))
 
 	app.use(express.static(config.staticPath));
-	
+
 	// app.use(path, express.static(config.staticPath));
 	app.listen(port)
 
@@ -40,4 +41,3 @@ console.log(' static server path : ' + config.staticPath );
 console.log(' started on port: ' + port);
 console.log(' environment: ' + env);
 console.log('\n\n-------\n-------\n'+ 'localhost:' + port+'\n-------\n-------\n\n');
-

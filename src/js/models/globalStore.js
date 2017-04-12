@@ -5,7 +5,12 @@ class GlobalStore {
 		this._callbackFunctions = new Array();
 		this._dataObj = {
 			created_at: new Date(),
-			tracklistHeights: {
+			calculateTaxes: {
+				taxespaid: 0,
+				taxespaidEN: "0",
+				income: 0,
+				incomeEN: "0",
+				status: 'single',
 			},
 			rafCallStack: [],
 			scroll: {
@@ -20,9 +25,8 @@ class GlobalStore {
 				docHeight: 0,
 				scrollHeight: 0
 			},
-			currentTracklist: '',
 			forceResize: 0,
-			canBackgroundAnimate: false
+			currentState: 'root',
 		}
 	}
 

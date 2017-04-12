@@ -28,7 +28,7 @@ var plugins = [
     }),*/
     new webpack.DefinePlugin({
         PRODUCTION: PROD,
-        VERSION: JSON.stringify("0.1.0"),
+        VERSION: JSON.stringify("0.0.1"),
         // TIMESTAMP: JSON.stringify(new Date().getTime())
         TIMESTAMP: JSON.stringify(new Date())
     }),

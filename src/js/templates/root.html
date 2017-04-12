@@ -1,3 +1,38 @@
-<section id="content-<%= UUID %>" class="content">
-  <h1>YOU'RE WELCOME</h1>
-</section>
+<div id="content-<%= UUID %>">
+
+	<section class="content">
+	  <h1>What are you paying for?</h1>
+		<p>This site will highlight an estimate of where some of your dollars (and cents) go towards the Federal budget.</p>
+
+		<p class="directions-input-income">Enter your Income for the Year and select your filing status. We will generate a rough estimate of Federal Taxes paid.
+			Or if you <a class="cta tax-input-toggle">know how much you paid in Federal Taxes</a>.</p>
+
+		<p class="hide directions-input-tax-paid">Enter your how much you pad in Federal Taxes for the Year.
+			Or if you don't know how much you paid in Federal Taxes <a class="cta tax-input-toggle">enter your income and filing status</a>.</p>
+	</section>
+
+	<section class="form input-income">
+
+		<span>$</span><input class="income" ></input><span>.00</span>
+
+		<form>
+			<input type="radio" name="filing-status" value="single" checked> Single<br>
+			<input type="radio" name="filing-status" value="mfj"> Married Filing Jointly<br>
+			<input type="radio" name="filing-status" value="mfs"> Married Filing Separately<br/>
+			<input type="radio" name="filing-status" value="hoh"> Head of Household<br/>
+		</form>
+
+		<button class="calculate">Calculate</button>
+	</section>
+
+
+	<section class="form input-taxes hide">
+
+		<span>$</span><input class="taxespaid" ></input><span>.00</span>
+
+		<button class="calculate">Calculate</button>
+
+	</section>
+
+
+</div>

@@ -85,28 +85,62 @@ header {
   top: 0;
   left: 0;
   color: #FFF;
-  a {
+
+	a {
     color: #FFF;
     text-transform: uppercase;
   }
+
 }
 
 #content-wrapper {
-  position: relative;
-  width: 100%;
+	padding-top: 100px;
+	position: relative;
+  width: 80%;
+	max-width: 900px;
+	margin: auto;
 }
 
 #root,
 section {
+	padding: 20px 0px;
   position: relative;
   width: 100%;
-  height: 100vh;
   text-align: center;
 }
 
-#content-root h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform(translateX(-50%) translateY(-50%));
+.logo {
+	width: 50px;
+	height: 50px;
+	background: #FCE8E8;
+
+	span {
+		padding: 7px;
+		display: block;
+	}
+	svg {
+		fill: #1A540E;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+section {
+
+	h1 {
+		color: #333;
+	}
+	p {
+		color: #666;
+		padding: 10px;
+	}
+	a.cta {
+		color: $niceBlue;
+		text-decoration: underline;
+		&:hover {
+			opacity: 0.75;
+		}
+	}
 }
