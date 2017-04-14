@@ -33,6 +33,9 @@ class ResultsView {
 		this.defineDOMElements();
 		this.bindEvents();
 
+		if (window.ga) {
+			window.ga('send', 'pageview', '/results');
+		}
 	}
 
 	createRootFromTemplate( template ) {

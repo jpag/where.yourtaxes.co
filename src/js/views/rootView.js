@@ -33,6 +33,10 @@ class RootView {
 
 		this.bindEvents();
 
+		if (window.ga) {
+			window.ga('send', 'pageview', '/root');
+		}
+
 	}
 
 	createRootFromTemplate( template ) {
@@ -158,6 +162,10 @@ class RootView {
 		}
 
 		console.log('income ', income, ' tax ', taxesPaid);
+
+		if (window.ga) {
+			window.ga('send', 'event', 'click', 'calculate', 'by'+this.currentInputState);
+		}
 
 		GlobalStore.set('calculateTaxes', {
 			taxespaid: taxesPaid,

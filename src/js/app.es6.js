@@ -22,7 +22,7 @@ class App {
 		new ResizeComponent({});
 
 		new RootComponent({
-			callback: this.start,
+			callback: this.start.bind(this),
 		});
 	}
 
@@ -32,24 +32,28 @@ class App {
 			for (var c = 0; c < cw.length; c++) {
 				cw[c].classList.remove(HIDE);
 			}
-
 			GlobalStore.set('forceResize', GlobalStore.get('forceResize') + 1 );
 
-			// if (!PRODUCTION) {
-			// 	GlobalStore.set('calculateTaxes', {
-			// 		taxespaid: 40000,
-			// 		income: 200000,
-			// 		taxespaidEN: addCommas(40000),
-			// 		incomeEN: addCommas(40000),
-			// 		status: 'single',
-			// 	});
-			// }
+			// this.testResultsPage();
 
 		}, 150 );
 
 		// const TrackingView = require('./views/trackingView');
 		// this.trackingView = new TrackingView();
 		// TweenMax.ticker.addEventListener("tick", (e) => this.raf());
+	}
+
+	testResultsPage() {
+		// test the results page
+		if (!PRODUCTION) {
+			GlobalStore.set('calculateTaxes', {
+				taxespaid: 40000,
+				income: 200000,
+				taxespaidEN: addCommas(40000),
+				incomeEN: addCommas(40000),
+				status: 'single',
+			});
+		}
 	}
 
 	raf() {
