@@ -1,7 +1,7 @@
 // import $ from 'webpack-zepto';
 // import is from 'is_js';
 import {READY, HIDE} from '../constants/classes';
-
+import CONFIG from '../constants/config';
 import GlobalStore from '../models/globalStore';
 import ROOT_TEMPLATE from '../templates/root.html';
 import fedTaxCal from '../helpers/fedTax';
@@ -17,6 +17,7 @@ class RootView {
 	}
 
 	render(_el) {
+		this._data.copy = CONFIG.root;
 		this.el = this.createRootFromTemplate(ROOT_TEMPLATE(this._data));
 
 		this.currentInputState = 'income';
@@ -46,8 +47,8 @@ class RootView {
 		this.el_dIncome = this.rootWrapper.querySelector("p.directions-input-income");
 		this.el_dTaxes = this.rootWrapper.querySelector("p.directions-input-tax-paid");
 
-		this.el_fIncome = this.rootWrapper.querySelector("section.form.input-income");
-		this.el_fTaxes = this.rootWrapper.querySelector("section.form.input-taxes");
+		this.el_fIncome = this.rootWrapper.querySelector(".form.input-income");
+		this.el_fTaxes = this.rootWrapper.querySelector(".form.input-taxes");
 
 		this.el_income_input = this.el.querySelector("input.income");
 		this.el_taxespaid_input = this.el.querySelector("input.taxespaid")
@@ -152,7 +153,8 @@ class RootView {
 
 			income = 'NA';
 			status = 'NA';
-			taxesPaid = parseInt(this.el_taxespaid_input.value, 10);
+
+			taxesPaid = parseInt(this.el_taxespaid_input.value.replace(sanitizeRegEx, ''), 10);
 		}
 
 		console.log('income ', income, ' tax ', taxesPaid);

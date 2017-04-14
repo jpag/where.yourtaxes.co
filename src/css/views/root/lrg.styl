@@ -1,36 +1,50 @@
 #content-root {
-	section.form {
+
+
+	section.forms {
 		text-align: left;
+		position: relative;
 
-		input {
-			border: 1px #ddd solid;
-			display: inline-block;
-			padding: 5px;
-			margin: 5px;
-			border-radius: 3px;
-			max-width: 100px;
-			&.income,
-			&.taxespaid {
-
+		.form {
+			// position: absolute;
+			// top: 0px;
+			// left: 0px;
+			transition: all $time-reveal-form $sine-ease-in;
+			&.hide {
+				display: none;
+				opacity: 0;
 			}
-			&::selection {
-				background: $niceBlue;
+
+			input {
+				border: 1px #ddd solid;
+				display: inline-block;
+				padding: 5px;
+				margin: 5px;
+				border-radius: 3px;
+				max-width: 100px;
+				&.income,
+				&.taxespaid {
+
+				}
+				&::selection {
+					background: $niceBlue;
+				}
 			}
-		}
 
-		button.calculate {
-			display: block;
-			border: 1px #ddd solid;
-			border-radius: 3px;
-			margin: 10px 0px;
-			background: #91b5e5;
-			padding: 10px;
-			color: #fff;
-		}
-
-		&.ready {
 			button.calculate {
-				background: $niceBlue;
+				display: block;
+				border: 1px #ddd solid;
+				border-radius: 3px;
+				margin: 10px 0px;
+				background: #91b5e5;
+				padding: 10px;
+				color: #fff;
+			}
+
+			&.ready {
+				button.calculate {
+					background: $niceBlue;
+				}
 			}
 		}
 	}

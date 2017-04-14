@@ -11,12 +11,19 @@ class RootComponent extends BaseComponent {
 	constructor(obj) {
 		super(obj);
 		this.el = document.querySelector('#root');
+		console.log(this.el.parentNode, this.el);
+		this.elParentWrapper = this.el.parentNode;
 
 		this.currentState = 'root';
 		GlobalStore.set('currentState', this.currentState);
+		// GlobalStore.set('forceResize', 1);
 
 		this.constructRoot();
 		this.renderChildren();
+
+		if (obj.callback) {
+			obj.callback();
+		}
 	}
 
 	constructRoot() {
@@ -41,11 +48,13 @@ class RootComponent extends BaseComponent {
 			console.log(index, child);
 			child.render(this.el);
 		}
+		GlobalStore.set('forceResize', GlobalStore.get('forceResize') + 1 );
 	}
 
 	//CALLED FROM SUPERCLASS
 	bindEvents() {
 		GlobalStore.on('change:scroll', this.scrollUpdate.bind(this));
+		GlobalStore.on('change:viewport', this.viewportUpdate.bind(this));
 		GlobalStore.on('change:calculateTaxes', this.onCalculate.bind(this));
 		GlobalStore.on('change:currentState', this.onStateChange.bind(this));
 	}
@@ -88,6 +97,17 @@ class RootComponent extends BaseComponent {
 
 	scrollUpdate() { }
 
+	viewportUpdate(e) {
+		console.log(' new viewport ', e);
+
+		const newParentHeight = e.height * .75;
+		const padding = 25;
+		const elHeight = ((this.el.innerHeight) ? this.el.offsetHeight : this.el.clientHeight) + padding;
+
+		this.elParentWrapper.style.height = ((newParentHeight >= elHeight) ? newParentHeight : elHeight) + 'px';
+
+
+	}
 }
 
 

@@ -79,7 +79,7 @@ module.exports = {
 		},
 		{
 			type: "add",
-			title: "Yucca Mountain nuclear waste dump",
+			title: "Yucca Mountain Nuclear waste dump",
 			department: "Energy Department",
 			pullQuote: "Yucca is dead and this reckless proposal will not revive it",
 			links: [

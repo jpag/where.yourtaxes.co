@@ -6,20 +6,61 @@ var includePath = 'src/js/';
 var publicPath = '/js/';
 // outpath for webpack compilation on 'this' machine.
 var outputPath = __dirname + '/public' + publicPath;
-
 // source mapping in dev mode.
 var devTool = 'source-map';
-
 // hash on 'deploy' app on 'dev'.
 var filename = 'app';
 
-// Produciton flag is passed in the npm script.
+// Production flag is passed in the npm script.
 var PROD = JSON.parse(process.env.ENV_PROD);
-
 var CONFIG = require('./src/js/constants/config.js');
 var DATA = require('./src/js/constants/data.js');
 
-// console.log(' CONFIG', CONFIG);
+// put all links together and remove duplicates.
+var LINKS = [];
+for (var l = 0; l < DATA.spending.length; l++) {
+	for ( var i = 0; i < DATA.spending[l].links.length; i++) {
+
+		var skip = false;
+		for( var d = 0; d < LINKS.length; d++) {
+			if ( DATA.spending[l].links[i].url === LINKS[d].url ) {
+				skip = true;
+			}
+		}
+		if (skip) {
+			continue;
+		}
+
+		LINKS.push({
+			title: DATA.spending[l].links[i].title,
+			url: DATA.spending[l].links[i].url
+		});
+	}
+}
+
+for (var key in DATA.datapoints) {
+	for ( var i = 0; i < DATA.datapoints[key].links.length; i++) {
+
+		var skip = false;
+		for( var d = 0; d < LINKS.length; d++) {
+			if ( DATA.datapoints[key].links[i].url === LINKS[d].url ) {
+				skip = true;
+			}
+		}
+
+		if (skip) {
+			continue;
+		}
+
+		LINKS.push({
+			title: DATA.datapoints[key].links[i].title,
+			url: DATA.datapoints[key].links[i].url
+		});
+	}
+}
+
+console.log(' LINKS len', LINKS.length);
+
 
 var plugins = [
     // Avoid publishing files when compilation failed
@@ -41,6 +82,7 @@ var plugins = [
         template: 'src/js/templates/index.html',
         CONFIG: CONFIG,
 				DATA: DATA,
+				LINKS: LINKS,
         PROD: PROD,
         minify: {
             removeComments: true,
@@ -56,7 +98,6 @@ var plugins = [
         },
         inject: false,
     }),
-
 ];
 
 // deploy this to a different output

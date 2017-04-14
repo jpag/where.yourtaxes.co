@@ -3,13 +3,21 @@
 	<section class="content">
 		<h1>Results</h1>
 
-		<p>You paid a total of $<%= calculateTaxes.taxespaidEN %> in taxes to the Federal Government.</p>
+		<p>You paid a total of $<%= calculateTaxes.taxespaidEN %> in taxes to the Federal Government. Below are estimates of potentially where some of this money could go in the 2018 Federal Budget.</p>
 
 		<ul class="list">
 			<%_.forEach(dis.spending, function (u) {%>
 			<li class="<%= u.type %>">
-				<h3><%= u.title %></h3>
-				<p class="cost">$<%= u.userpaid  %></p>
+				<h2><%= u.title %></h2>
+
+				<p class="paid">$<%= u.userpaid  %></p>
+
+				<div class="links">
+				<%_.forEach(u.links, function (l) {%>
+					<a href="<%= l.url %>" target="_blank"><%= l.title %></a>
+				<%})%>
+				</div>
+
 			</li>
 			<%})%>
 		</ul>

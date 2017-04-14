@@ -9,9 +9,7 @@ body {
   margin: 0 auto;
   padding: 0 auto;
   font-family: Arial,Tahoma,sans-serif;
-
 	background: $footerColor;
-
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
@@ -26,6 +24,7 @@ body {
 
 .everything-but-the-footer {
 	background: $bgColor;
+	padding: 100px 0px;
 }
 
 canvas {
@@ -87,24 +86,42 @@ ul,li {
 header {
   position: fixed;
   width: 100%;
-  padding: 20px;
+  padding: 5px;
   top: 0;
   left: 0;
   color: #FFF;
+	z-index: $z-header;
+	background: $logoBkgdColor;
 
 	a {
     color: #FFF;
     text-transform: uppercase;
   }
+	.logo {
+		width: $logo-size;
+		height: $logo-size;
+		background: $logoBkgdColor;
 
-}
+		span {
+			width: $logo-size;
+			height: $logo-size;
+			padding: 7px;
+			display: block;
+		}
+		svg {
+			fill: $logoFillColor;
+		}
+	}
 
-.content-wrapper {
-	padding: 100px 0px;
-	position: relative;
-  width: 80%;
-	max-width: $site-max-width;
-	margin: auto;
+	.site-title {
+		width: 100%;
+		position: absolute;
+		margin: auto;
+		display: inline-block;
+		text-align: center;
+		padding-top: 15px;
+		top: 0px;
+	}
 }
 
 #root,
@@ -115,32 +132,50 @@ section {
   text-align: center;
 }
 
-.logo {
-	width: 50px;
-	height: 50px;
-	background: #FCE8E8;
+.content-wrapper {
+	// padding: 100px 0px;
+	position: relative;
+  width: 80%;
+	max-width: $site-max-width;
+	margin: auto;
 
-	span {
-		padding: 7px;
-		display: block;
-	}
-	svg {
-		fill: #1A540E;
-	}
-}
+	// &:first-child {
+	// 	padding: 100px 0px 50px;
+	// }
 
-.hide {
-	display: none;
+	h1, h2, h3{
+		transition: all $time-reveal $sine-ease-in;
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+	}
+
+	a, ul, p, span, input, form, button, div {
+		transition: all $time-reveal $sine-ease-in;
+		transition-delay: $time-reveal-delay;
+		transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+
+	&.hide {
+		h1, h2, h3,
+		a, ul, p, span, input, form, button, div {
+			opacity: 0;
+			transform: translate3d(0px, 5px, 0px);
+		}
+	}
 }
 
 section {
-
 	h1 {
 		color: #333;
 	}
 	p {
 		color: #666;
 		padding: 10px;
+
+		&.hide {
+			display: none;
+		}
 	}
 	a.cta {
 		color: $niceBlue;

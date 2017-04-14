@@ -80,29 +80,29 @@
 					</span>
 				</a>
 			 </div>
+
+			 <div class="site-title">Where Your Taxes Go</div>
 			</div>
 		</header>
 
-		<div class="content-wrapper">
+		<div class="content-wrapper hide">
 			<div id="root">
 
 			</div>
 		</div>
 
-		<div class="content-wrapper">
+		<div class="content-wrapper hide">
 			<div id="about">
 				<section>
 					<h3>About</h3>
-					<p></p>
+					<p><%= htmlWebpackPlugin.options.CONFIG.about.copy %></p>
 				</section>
 				<section>
 					<h3>Resources</h3>
 					<p></p>
 					<ul>
-						<%_.forEach(htmlWebpackPlugin.options.DATA.spending, function (u) {%>
-							<%_.forEach(u.links, function (l) {%>
-								<li><a href="<%= l.url %>" target="_blank"><%= l.title %></a></li>
-							<%})%>
+						<%_.forEach(htmlWebpackPlugin.options.LINKS, function (u) {%>
+							<li><a href="<%= u.url %>" target="_blank"><%= u.title %></a></li>
 						<%})%>
 					</ul>
 				</section>
@@ -112,9 +112,11 @@
 	</div>
 
 	<footer>
-		<p>
-			<%= htmlWebpackPlugin.options.CONFIG.footer.copy %>
-		</p>
+		<div class="content-wrapper hide">
+			<p>
+				<%= htmlWebpackPlugin.options.CONFIG.footer.copy %>
+			</p>
+		</div>
 	</footer>
 
 	<% if ( htmlWebpackPlugin.options.PROD ) { %>
