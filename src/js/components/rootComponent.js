@@ -57,6 +57,17 @@ class RootComponent extends BaseComponent {
 		GlobalStore.on('change:viewport', this.viewportUpdate.bind(this));
 		GlobalStore.on('change:calculateTaxes', this.onCalculate.bind(this));
 		GlobalStore.on('change:currentState', this.onStateChange.bind(this));
+
+		document.querySelector('header a.logo').addEventListener('click', this.headerLogoClicked.bind(this));
+	}
+
+	headerLogoClicked() {
+		if (this.currentState !== 'root') {
+			this.currentState = 'root';
+			this.cleanChildren();
+			this.constructRoot();
+			this.renderChildren();
+		}
 	}
 
 	onStateChange(e) {
