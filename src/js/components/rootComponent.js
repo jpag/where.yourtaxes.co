@@ -49,6 +49,7 @@ class RootComponent extends BaseComponent {
 			child.render(this.el);
 		}
 		GlobalStore.set('forceResize', GlobalStore.get('forceResize') + 1 );
+		window.scrollTo(0,0);
 	}
 
 	//CALLED FROM SUPERCLASS
@@ -61,7 +62,8 @@ class RootComponent extends BaseComponent {
 		document.querySelector('header a.logo').addEventListener('click', this.headerLogoClicked.bind(this));
 	}
 
-	headerLogoClicked() {
+	headerLogoClicked(e) {
+		e.preventDefault();
 		if (this.currentState !== 'root') {
 			this.currentState = 'root';
 			this.cleanChildren();
@@ -109,15 +111,12 @@ class RootComponent extends BaseComponent {
 	scrollUpdate() { }
 
 	viewportUpdate(e) {
-		console.log(' new viewport ', e);
+		// console.log(' new viewport ', e);
 
-		const newParentHeight = e.height * .75;
+		const newParentHeight = e.height * .6;
 		const padding = 25;
 		const elHeight = ((this.el.innerHeight) ? this.el.offsetHeight : this.el.clientHeight) + padding;
-
 		this.elParentWrapper.style.height = ((newParentHeight >= elHeight) ? newParentHeight : elHeight) + 'px';
-
-
 	}
 }
 

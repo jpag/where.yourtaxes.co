@@ -16,7 +16,7 @@ module.exports = {
 			],
 		},
 		ttr: {
-			title: 'Projected Federal Revenue Total 2017',
+			title: 'Projected Federal Revenue Total 2018',
 			value: 3370000000000,
 			links: [
 				{
@@ -28,7 +28,21 @@ module.exports = {
 					title: "IRS return filing estimates (PDF)",
 				},
 			],
-		}
+		},
+		tfs: {
+			title: 'Projected Federal Spending Total 2018',
+			value: 3760000000000,
+			links: [
+				{
+					url: "http://federal-budget.insidegov.com/l/121/2018-Estimate#Spending&s=47xnQz",
+					title: "Federal Budget insidegov.com",
+				},
+				{
+					url: "https://www.irs.gov/pub/irs-soi/12rswinbulreturnfilings.pdf",
+					title: "IRS return filing estimates (PDF)",
+				},
+			],
+		},
 	},
 	spending: [
 		{

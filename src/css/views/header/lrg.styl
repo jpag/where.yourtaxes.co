@@ -1,0 +1,76 @@
+header {
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  top: 0;
+  left: 0;
+  color: #FFF;
+	z-index: $z-header;
+	background: $logoBkgdColor;
+
+	a {
+    color: #FFF;
+    text-transform: uppercase;
+
+  }
+	.logo {
+		position: relative;
+		z-index: $zHeaderLogo;
+		width: $logo-size;
+		height: $logo-size;
+		// background: $logoBkgdColor;
+		display: inline-block;
+		margin: 0px 10px;
+
+		span {
+			width: $logo-size;
+			height: $logo-size;
+			padding: 7px;
+			display: block;
+			background: url('../svgs/logo.svg');
+		}
+		//
+		// svg {
+		// 	fill: $logoFillColor;
+		// }
+	}
+
+	.site-title {
+		z-index: $zHeaderTitle;
+		width: 100%;
+		position: absolute;
+		margin: auto;
+		display: inline-block;
+		text-align: center;
+		padding-top: 15px;
+		top: 0px;
+		left: 0px;
+	}
+
+	.share-icons {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		z-index: $zShare;
+		.share {
+			display: inline-block;
+			width: $shareIconWH;
+			height: $shareIconWH;
+			pointer: cursor;
+			text-indent: -1000px;
+			font-size: 5px;
+			overflow: hidden;
+			margin: 5px;
+
+			&.facebook-icon {
+				background-image: url("../svgs/social-fb.svg");
+			}
+
+			&.twitter-icon {
+				background-image: url("../svgs/social-tw.svg");
+			}
+
+		}
+	}
+
+}

@@ -27,10 +27,6 @@ body {
 	padding: 100px 0px;
 }
 
-canvas {
-  background-color: $bgColor;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -83,47 +79,6 @@ ul,li {
   background-position: 50%;
 }
 
-header {
-  position: fixed;
-  width: 100%;
-  padding: 5px;
-  top: 0;
-  left: 0;
-  color: #FFF;
-	z-index: $z-header;
-	background: $logoBkgdColor;
-
-	a {
-    color: #FFF;
-    text-transform: uppercase;
-  }
-	.logo {
-		width: $logo-size;
-		height: $logo-size;
-		background: $logoBkgdColor;
-
-		span {
-			width: $logo-size;
-			height: $logo-size;
-			padding: 7px;
-			display: block;
-		}
-		svg {
-			fill: $logoFillColor;
-		}
-	}
-
-	.site-title {
-		width: 100%;
-		position: absolute;
-		margin: auto;
-		display: inline-block;
-		text-align: center;
-		padding-top: 15px;
-		top: 0px;
-	}
-}
-
 #root,
 section {
 	// padding: 20px 0px;
@@ -169,14 +124,22 @@ section {
 	h1 {
 		color: #333;
 	}
+	h2 {
+		text-align: left;
+	}
+	
 	p {
 		color: #666;
-		padding: 10px;
-
+		text-align: left;
 		&.hide {
 			display: none;
 		}
 	}
+
+	p, ul {
+		padding: 10px 0px;
+	}
+
 	a.cta {
 		color: $niceBlue;
 		text-decoration: underline;

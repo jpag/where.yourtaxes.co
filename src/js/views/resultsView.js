@@ -15,9 +15,12 @@ class ResultsView {
 	render(_el) {
 		const incomeTaxesCollected = this._data.dis.datapoints.iitce.value;
 		const totalFederalRevenue = this._data.dis.datapoints.ttr.value;
+		const totalFederalSpending = this._data.dis.datapoints.tfs.value;
 		const userPaid = this._data.calculateTaxes.taxespaid;
-		// we have to factor in that federal taxes are only a portion of the total federal revenue
-		const percentIncomeTaxIsOfTotalRevenue = incomeTaxesCollected / totalFederalRevenue;
+
+		// we have to factor in that federal taxes are only a portion of the total federal of spent
+		const percentIncomeTaxIsOfTotalRevenue = incomeTaxesCollected / totalFederalSpending;
+
 		// user's taxes are only a portion of the total federal taxes collected:
 		const percentOfUsersTaxToTotalIncomeTax = userPaid / incomeTaxesCollected;
 

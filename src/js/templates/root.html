@@ -1,13 +1,19 @@
 <div id="content-<%= UUID %>">
 
 	<section class="content">
-	  <h1><%= copy.title %></h1>
-		<p><%= copy.blurb %>.</p>
-		<p class="directions-input-income"><%= copy.directions.income %><a class="cta tax-input-toggle"><%= copy.cta.taxes %></a>.</p>
-		<p class="hide directions-input-tax-paid"><%= copy.directions.taxes %><a class="cta tax-input-toggle"><%= copy.cta.income %></a>.</p>
+	  <h1 class='serif'><%= copy.title %></h1>
+		<!-- <div class="lines">
+			<span class="line red">-</span>
+			<span class="line green">+</span>
+		</div> -->
+		<p><%= copy.blurb %></p>
 	</section>
 
 	<section class="forms">
+		<h2 class="serif">Calculate</h2>
+		<p class="directions-input-income"><%= copy.directions.income %><a class="cta tax-input-toggle"><%= copy.cta.taxes %></a>.</p>
+		<p class="hide directions-input-tax-paid"><%= copy.directions.taxes %><a class="cta tax-input-toggle"><%= copy.cta.income %></a>.</p>
+
 		<div class="form input-income">
 
 			<span>$</span><input class="income" ></input><span>.00</span>

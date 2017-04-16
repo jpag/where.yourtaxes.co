@@ -272,13 +272,14 @@ const calcTaxes = function (amount, s){
 			if (brackets[status][v].range[0] <= amount &&
 					amount < brackets[status][v].range[1] ) {
 
-				// console.log('a', amount, 'tx',t, status, v);
-				estTaxes = brackets[status][v].tax(amount) - standardDeduction;
+				// console.log(brackets[status][v].range[0], 'in range a', amount, brackets[status][v].range[1], status, v);
+				// console.log(standardDeduction);
+				estTaxes = brackets[status][v].tax(amount - standardDeduction);
 				break;
 			}
 
 		} else if (brackets[status][v].range[0] < amount ){
-			estTaxes = brackets[status][v].tax(amount) - standardDeduction;
+			estTaxes = brackets[status][v].tax(amount - standardDeduction);
 			break;
 		}
 	};

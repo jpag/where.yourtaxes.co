@@ -24,6 +24,28 @@ class App {
 		new RootComponent({
 			callback: this.start.bind(this),
 		});
+
+		this.bindGlobalEvents()
+	}
+
+	bindGlobalEvents() {
+		var shares = document.querySelectorAll('header a.share');
+
+		for ( var s = 0; s < shares.length; s++) {
+			shares[s].addEventListener('click', this.shareClicked.bind(this));
+		}
+
+	}
+
+	shareClicked(e) {
+		e.preventDefault();
+		const intWidth = '500';
+		const intHeight ='400';
+		const strResize = 'no';
+		// Set title and open popup with focus on it
+		var strTitle = 'Social Share';
+		var strParam = 'width=' + intWidth + ',height=' + intHeight + ',resizable=' + strResize;
+		window.open(e.currentTarget.getAttribute('href'), strTitle, strParam).focus();
 	}
 
 	start() {

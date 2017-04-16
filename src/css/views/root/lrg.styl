@@ -1,27 +1,67 @@
 #content-root {
+	.content {
+		h1 {
+			padding-bottom: 10px;
+		}
 
+		.lines {
+			width: 100%;
+			.line {
+				width: 100%;
+				height: 20px;
+				background: #ddd;
+				margin: 5px 0px;
+				display: block;
+				text-align: right;
+				color: #fff;
+				padding: 0px 10px;
+
+				&.green {
+					background: $colorGreen;
+				}
+				&.red {
+					background: $colorRed;
+				}
+			}
+		}
+	}
 
 	section.forms {
-		text-align: left;
+		text-align: center;
 		position: relative;
+		padding-top: 40px;
+		margin-top: 40px;
+		border-top: 1px solid $colorborder;
 
 		.form {
+			text-align: left;
+			margin: auto;
+			margin-top 40px;
+			width: auto;
+			position: relative;
+			display: inline-block;
 			// position: absolute;
 			// top: 0px;
 			// left: 0px;
 			transition: all $time-reveal-form $sine-ease-in;
+
 			&.hide {
 				display: none;
 				opacity: 0;
 			}
 
 			input {
-				border: 1px #ddd solid;
+				border: 1px solid $colorborder;
 				display: inline-block;
 				padding: 5px;
-				margin: 5px;
+				margin: 5px 5px;
 				border-radius: 3px;
-				max-width: 100px;
+				// max-width: 100px;
+
+				max-width: 120px;
+				font-size: 1.5rem;
+				text-align: right;
+
 				&.income,
 				&.taxespaid {
 
@@ -33,16 +73,20 @@
 
 			button.calculate {
 				display: block;
-				border: 1px #ddd solid;
+				border: 1px solid #fff;
 				border-radius: 3px;
 				margin: 10px 0px;
 				background: #91b5e5;
 				padding: 10px;
+				margin: 10px 0px;
 				color: #fff;
+				width: 100%;
+				min-width: 150px;
 			}
 
 			&.ready {
 				button.calculate {
+					border: 1px solid $colorborder;
 					background: $niceBlue;
 				}
 			}

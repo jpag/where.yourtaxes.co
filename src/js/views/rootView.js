@@ -140,24 +140,19 @@ class RootView {
 		let income = parseInt(this.el_income_input.value.replace(sanitizeRegEx, ''), 10);
 		let status, taxesPaid;
 		if (this.currentInputState == 'income') {
-
-			if ( income < 999 ) {
-				this.pullError('Income must be $1000 or more.');
+			if ( income < 10000 ) {
+				this.pullError('Income must be $10000 or more.');
 				return;
 			}
-
 			if ( isNaN(income) ) {
 				this.pullError('Income is not a Number.');
 				return;
 			}
-
 			status = document.querySelector('input[name="filing-status"]:checked').value;
 			taxesPaid = fedTaxCal( income, status );
 		} else {
-
 			income = 'NA';
 			status = 'NA';
-
 			taxesPaid = parseInt(this.el_taxespaid_input.value.replace(sanitizeRegEx, ''), 10);
 		}
 
