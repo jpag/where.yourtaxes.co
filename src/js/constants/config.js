@@ -3,7 +3,7 @@ module.exports = {
 	"head" : {
 		"title": "Where your taxes go.",
 		"meta" : {
-			"description": "Input your taxes for the year, and see an estimate of how much you paid for some highlighted items in Federal spending.",
+			"description": "Input your taxes for the year, and see an estimate of how much you paid for a selected list of items in Federal spending.",
 			"keywords": "Taxes, Donald Trump, What You Pay, where your taxes go, Border Wall, EPA, Trump Tower, Trump Security, Too many vacations",
 			"url": "http://where.yourtaxes.co/"
 		},
@@ -25,7 +25,7 @@ module.exports = {
 	},
 	"root" : {
 		"title" : "What are you paying for?",
-		"blurb" : "This site will highlight some estimates of where your tax dollars go towards in the Federal budget. It will also show what has been cut from the proposed Budget of 2018.",
+		"blurb" : "This site will highlight some estimates of where your tax dollars could go towards within the Federal budget. It will also show what has been cut from the proposed Budget of 2018.",
 		"directions" : {
 			"income" : "Enter your Income for the Year and select your filing status. We will generate a rough estimate of Federal Taxes paid. Or if you ",
 			"taxes" : "Enter your how much you paid in Federal Taxes for the Year. Or if you don't know how much you paid in Federal Taxes "
@@ -37,9 +37,9 @@ module.exports = {
 	},
 	"about" : {
 		"copy": [
-			"This project aims to highlight where an individual's money might go from income tax looking at the 2018 budget. The estimate is based off of the IRS's Projection of Federal Tax Return Filings. It is estimated there will be $1.63 Trillion collected from Individual Income Taxes for 2018, out of $3.37 Trillion in Revenue for the Federal Government. The Federal Government is expected to spend an additional $465 Billion which makes the tally for total spending at $3.76 Trillion.",
+			"This project highlights where an individual's money might go from income tax into the 2018 budget. It is meant to showcase some of the differences presented in the propsed 2018 budget. The estimate is based off of the IRS's Projection of Federal Tax Return Filings. It is estimated there will be $1.63 Trillion collected from Individual Income Taxes for 2018, out of $3.37 Trillion in Revenue for the Federal Government. The Federal Government is expected to spend an additional $465 Billion which makes the tally for total spending at $3.76 Trillion.",
 			"The Tax calculation process is on this site is not accurate, it does not take into account itemized deductions, or exemptions. For a more accurate picture of where you tax dollars go we recommend toggling to the Taxes paid input instead of income input.",
-			"The equation run is: <span class='calculation'>(Total individual income tax / total federal spending) * (an individual's income tax / total individual income tax) * (cost of item)</span> "
+			"The equation run is: <span class='calculation'>(Total individual income tax / total federal spending) * <br/>(an individual's income tax / total individual income tax) * <br/>(cost of item)</span> "
 		],
 	},
 	"footer" : {

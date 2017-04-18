@@ -3,28 +3,21 @@
 	<section class="content">
 		<h2 class="serif">Results</h2>
 
-		<p>We estimated that you paid a total of <span class="tax-paid">$<%= calculateTaxes.taxespaidEN %></span> in taxes to the Federal Government. Below are estimates of potentially where some of this money could go in the 2018 Federal Budget.</p>
+		<p>We estimated that you would pay a total of <span class="tax-paid">$<%= calculateTaxes.taxespaidEN %></span> in taxes to the Federal Government. Below are estimates of where your money would go towards the 2018 Federal Budget out of your total.</p>
 
 		<ul class="list">
-			<%_.forEach(dis.spending, function (u) {%>
-			<li class="<%= u.type %>">
+			<%_.forEach(dis.spending, function (u, index) {%>
+			<li class="<%= u.type %> hide entry" data-id=" <%= index %>">
 				<h2><%= u.title %></h2>
-
 				<p class="paid">$<%= u.userpaid  %></p>
-
 				<div class="links">
 					<%_.forEach(u.links, function (l) {%>
 						<a href="<%= l.url %>" target="_blank"><%= l.title %></a>
 					<%})%>
 				</div>
-
 			</li>
 			<%})%>
 		</ul>
-
 		<a class="cta">Go Back</a>
-
 	</section>
-
-
 </div>

@@ -107,7 +107,7 @@ module.exports = {
 		},
 		{
 			type: "add",
-			title: "Defense Spending",
+			title: "Added Defense Spending",
 			department: "Department of Defense",
 			links: [
 				{

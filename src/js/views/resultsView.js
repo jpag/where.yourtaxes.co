@@ -9,12 +9,13 @@ class ResultsView {
 
 	constructor(obj) {
 		this._data = obj;
+		this.delayTime = 100;
 		this._data.dis = disData;
 	}
 
 	render(_el) {
 		const incomeTaxesCollected = this._data.dis.datapoints.iitce.value;
-		const totalFederalRevenue = this._data.dis.datapoints.ttr.value;
+		// const totalFederalRevenue = this._data.dis.datapoints.ttr.value;
 		const totalFederalSpending = this._data.dis.datapoints.tfs.value;
 		const userPaid = this._data.calculateTaxes.taxespaid;
 
@@ -39,6 +40,25 @@ class ResultsView {
 		if (window.ga) {
 			window.ga('send', 'pageview', '/results');
 		}
+
+
+		this.lis = this.el.querySelectorAll('.list li.entry');
+		this.currentLi = 0;
+
+		setTimeout( this.incrementReveal.bind(this), this.delayTime );
+	}
+
+	incrementReveal() {
+
+		if (this.currentLi >= this.lis.length) {
+			console.log(' done incrementing...');
+			return;
+		}
+
+		this.lis[this.currentLi].classList.remove('hide');
+		this.currentLi++;
+
+		setTimeout( this.incrementReveal.bind(this), this.delayTime );
 	}
 
 	createRootFromTemplate( template ) {
@@ -49,13 +69,11 @@ class ResultsView {
 
 	defineDOMElements() {
 		this.rootWrapper = document.querySelector('#content-' + this._data.UUID);
-
 	}
 
 	bindEvents() {
 		GlobalStore.on('change:scroll', this.scrollUpdate.bind(this));
 		GlobalStore.on('change:viewport', this.onResize.bind(this));
-
 		// bind children:
 		this.el.querySelector('a.cta').addEventListener('click', this.goBack.bind(this));
 	}

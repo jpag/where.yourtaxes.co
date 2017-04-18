@@ -22,6 +22,26 @@
 				// border-top: 1px solid #ddd;
 				// color: #333;
 
+				opacity: 1;
+				transform: translate3d(0px, 0px, 0px);
+				transition: all $time-reveal-entry $quint-ease-out;
+
+				p.paid {
+					opacity: 1;
+					max-width: 300px;
+					transition: all 750ms $quad-ease-in-out;
+					transition-delay: $time-reveal-entry * 0.8;
+				}
+
+				&.hide {
+					opacity: 0;
+					transform: translate3d(0px, 200px, 0px);
+					p.paid {
+						opacity: 0;
+						max-width: 0px;
+					}
+				}
+
 				h2, p {
 					position: relative;
 					display: inline-block;
@@ -54,6 +74,7 @@
 					top: 0px;
 					padding: 10px;
 					height: 100%;
+					width: auto;
 				}
 
 				.links {
