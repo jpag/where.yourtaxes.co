@@ -263,5 +263,17 @@ module.exports = {
 			],
 			cpy: 32500000,
 		},
+		{
+			type: "cut",
+			title: "Strip all funding from Office of Global Women’s Issues",
+			pullQuote: "This administration is proposing devastating cuts that will have dire consequences for millions of people",
+			links: [
+				{
+					url: "http://www.independent.co.uk/news/world/americas/us-politics/donald-trump-budget-2018-state-department-cut-office-global-womens-issues-oxfam-ivanka-a7701631.html",
+					title: "Donald Trump to strip all funding from State Department team promoting women's rights around the world",
+				},
+			],
+			cpy: 8250000,
+		},
 	]
 }
