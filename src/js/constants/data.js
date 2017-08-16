@@ -275,5 +275,20 @@ module.exports = {
 			],
 			cpy: 8250000,
 		},
+		{
+			type: "cut",
+			title: "Trans healthcare in the Military",
+			links: [
+					{
+						url: "http://www.nbcnews.com/news/us-news/trump-claims-transgender-service-members-cost-too-much-true-n786891",
+						title: "Trump Claims Transgender Service Members Cost Too Much: But Is That True?",
+					},
+					{
+						url: "https://twitter.com/queerdsa/status/890301710702456833",
+						title: "Budget of Trans healthcare.",
+					}
+			],
+			cpy: 8400000.00,
+		},
 	]
 }
